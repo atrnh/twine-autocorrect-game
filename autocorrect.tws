@@ -12,7 +12,7 @@ p5
 (dp6
 sS'target'
 p7
-S'sugarcane'
+S'jonah'
 p8
 sS'storyPanel'
 p9
@@ -80,19 +80,19 @@ Tiddler
 p36
 (dp37
 g21
-S'Untitled Story'
+VAutocorrect
 p38
 sg23
-S'StoryTitle'
+VStoryTitle
 p39
 sg25
 g26
 ((I2015
 I4
 I8
-I12
-I1
-I56
+I13
+I13
+I51
 I2
 I98
 I1
@@ -103,26 +103,6 @@ Rp43
 sg31
 (lp44
 sg33
-g43
-sbsa(dp45
-g14
-I00
-sg15
-(lp46
-I10
-aI290
-asg17
-(itiddlywiki
-Tiddler
-p47
-(dp48
-g21
-S'Anonymous'
-p49
-sg23
-S'StoryAuthor'
-p50
-sg25
 g26
 ((I2015
 I4
@@ -133,18 +113,270 @@ I56
 I2
 I98
 I1
-tp51
+tp45
+(dp46
+tp47
+Rp48
+sbsa(dp49
+g14
+I00
+sg15
+(lp50
+I10
+aI290
+asg17
+(itiddlywiki
+Tiddler
+p51
 (dp52
-tp53
-Rp54
+g21
+VAshley Trinh
+p53
+sg23
+VStoryAuthor
+p54
+sg25
+g26
+((I2015
+I4
+I8
+I13
+I13
+I44
+I2
+I98
+I1
+tp55
+(dp56
+tp57
+Rp58
 sg31
-(lp55
+(lp59
 sg33
-g54
+g26
+((I2015
+I4
+I8
+I12
+I1
+I56
+I2
+I98
+I1
+tp60
+(dp61
+tp62
+Rp63
+sbsa(dp64
+g14
+I00
+sg15
+(lp65
+I1410
+aI10
+asg17
+(itiddlywiki
+Tiddler
+p66
+(dp67
+g21
+V(function(){\u000aversion.extensions['timedreplaceMacro'] = {\u000a  major: 2,\u000a  minor: 1,\u000a  revision: 0\u000a};\u000amacros['timedinsert'] = macros['timedreplace'] = {\u000a  handler: function (g, e, f, b) {\u000a    function tagcontents(starttag, endtag, k) {\u000a      var a = b.source.slice(k);\u000a      var l = 0;\u000a      var c = "";\u000a      for (var i = 0; i < a.length; i++) {\u000a        var w = endtag.length;\u000a        if (a.substr(i, w) == endtag) {\u000a          if (l == 0) {\u000a            b.nextMatch = k + i + w;\u000a            return c;\u000a          } else {\u000a            l--;\u000a            c += a.charAt(i);\u000a          }\u000a        } else {\u000a          if (a.substr(i, starttag.length) == starttag) {\u000a            l++;\u000a          }\u000a          c += a.charAt(i);\u000a        }\u000a      }\u000a      return "";\u000a    }\u000a    var tr = "<<"+e;\u000a    var rw = "<<replacewith>>";\u000a	var etr = "<<end" + e + ">>";\u000a    var k = b.source.indexOf('>>', b.matchStart) + 2;\u000a	var c, d;\u000a	if (e=="timedreplace") {\u000a      c = tagcontents(tr, rw, k);\u000a      d = tagcontents((c ? rw : tr), etr, c ? b.nextMatch : k);\u000a	} else if (e=="timedinsert") {\u000a	  d = tagcontents(tr, etr, k);\u000a	} else if (e=="timedremove") {\u000a	  c = tagcontents(tr, etr, k);\u000a	}\u000a	var tm; tm = (parseInt(f[0]) || 0) * 500;\u000a    var h;\u000a    if (c) {\u000a      h = insertElement(g, "span", null, "timedreplacement timedreplacement1");\u000a      new Wikifier(h, c);\u000a	  if (d || e=="timedremove") {\u000a	    setTimeout(function () {\u000a          h.classList.add("replacement-out");\u000a          setTimeout(function () {\u000a            h.parentNode.removeChild(h);\u000a          }, 1000);\u000a		}, tm);\u000a	  }\u000a    }\u000a    if (d) {\u000a      var m = insertElement(g, "span", null, "timedreplacement timedreplacement2", d);\u000a      m.style.display = "none";\u000a      setTimeout(function () {\u000a        if (m) {\u000a          var t = m.firstChild ? m.firstChild.nodeValue : "";\u000a          removeChildren(m);\u000a          new Wikifier(m, t);\u000a          m.style.display = "inline";\u000a          m.classList.add("replacement-in");\u000a          setTimeout(function () {\u000a            m.classList.remove("replacement-in");\u000a          }, 1);\u000a		  scrollWindowTo(m);\u000a\u000a		document.scroll_chat();\u000a        }\u000a      }, tm);\u000a    } else if (!c && e!="timedremove") {\u000a      throwError(g, "can't find matching end"+e);\u000a      return;\u000a    }\u000a  }\u000a}\u000amacros['timedremove'] = macros['timedreplace'];\u000amacros['replacewith'] = macros['endtimedinsert'] = macros['endtimedremove'] = macros['endtimedreplace'] = {\u000a  handler: function () {}\u000a}\u000ascrollWindowTo = function(E) {\u000a    var D = window.scrollY ? window.scrollY : document.body.scrollTop;\u000a    var G = J(E);\u000a	if (!G) return;\u000a    var C = Math.abs(D - G);\u000a    var B = 0;\u000a    var I = (D > G) ? -1 : 1;\u000a    var F = window.setInterval(H, 25);\u000a    function H() {\u000a        B += 0.1;\u000a        window.scrollTo(0, D + I * (C * Math.easeInOut(B)));\u000a        if(B >= 1) {\u000a            window.clearInterval(F)\u000a        }\u000a    }\u000a    function J(N) {\u000a        var O = A(N);\u000a        var P = O + N.offsetHeight;\u000a        var K = window.scrollY ? window.scrollY : document.body.scrollTop;\u000a        var L = window.innerHeight ? window.innerHeight : document.body.clientHeight;\u000a        var M = K + L;\u000a        if(O >= K) {\u000a            if(P > M) {\u000a                if(N.offsetHeight < L) {\u000a                    return (O - (L - N.offsetHeight) + 20)\u000a                }\u000a                else {\u000a                    return O;\u000a                }\u000a            }\u000a        }\u000a    }\u000a    function A(K) {\u000a        var L = 0;\u000a        while(K.offsetParent) {\u000a            L += K.offsetTop;\u000a            K = K.offsetParent;\u000a        }\u000a        return L\u000a    }\u000a}\u000a}());
+p68
+sg23
+VReplace Macros
+p69
+sg25
+g26
+((I2015
+I4
+I8
+I13
+I11
+I38
+I2
+I98
+I1
+tp70
+(dp71
+tp72
+Rp73
+sg31
+(lp74
+Vscript
+p75
+asg33
+g26
+((I2015
+I4
+I8
+I13
+I10
+I58
+I2
+I98
+I1
+tp76
+(dp77
+tp78
+Rp79
+sbsa(dp80
+g14
+I00
+sg15
+(lp81
+I1270
+aI10
+asg17
+(itiddlywiki
+Tiddler
+p82
+(dp83
+g21
+V(function () {\u000a  version.extensions['revisionMacros'] = {\u000a    major: 1,\u000a    minor: 2,\u000a    revision: 0\u000a  };\u000a\u000a  function tagcontents(b, starttags, desttags, endtags, k) {\u000a    function tagfound(i, e) {\u000a      for (var j = 0; j < e.length; j++) {\u000a        if (a.indexOf(e[j], i) == i) {\u000a          return e[j];\u000a        }\u000a      }\u000a    }\u000a    var a = b.source.slice(k);\u000a    var l = 0;\u000a    var c = "";\u000a    var tg;\u000a    for (var i = 0; i < a.length; i++) {\u000a      if (tg = tagfound(i, starttags)) {\u000a        l++;\u000a      }\u000a      else if ((tg = tagfound(i, desttags)) && l == 0) {\u000a        b.nextMatch = k + i + tg.length;\u000a        return [c, tg];\u000a      }\u000a      else if (tg = tagfound(i, endtags)) {\u000a        l--;\u000a        if (l < 0) {\u000a          return null;\u000a        }\u000a      }\u000a      c += a.charAt(i);\u000a    }\u000a    return null;\u000a  }\u000a  macros['cycle'] = macros['insertion'] = macros['removal'] = macros['revision'] = macros['span'] = {\u000a    handler: function (g, e, f, b) {\u000a      var begintags = ["<<revision", "<<cycle", "<<insertion", "<<removal", "<<span"];\u000a      var becomes = ["<<becomes>>", "<<gains>>"];\u000a      var endtags = ["<<endrevision>>", "<<endcycle>>", "<<endinsertion>>", "<<endremoval>>", "<<endspan>>"];\u000a      var name = f[0].replace(" ", "_");\u000a      var k = b.source.indexOf('>>', b.matchStart) + 2;\u000a      var c, vsns, vsn, i, cn, vtype;\u000a      vsns = [];\u000a      c = tagcontents(b, begintags, becomes.concat(endtags), endtags, k);\u000a      if (c && endtags.indexOf(c[1]) == -1) {\u000a        while (c) {\u000a          vsns.push(c);\u000a          c = tagcontents(b, begintags, becomes, endtags, b.nextMatch);\u000a        }\u000a        c = tagcontents(b, begintags, ["<<end" + e + ">>"], endtags, b.nextMatch);\u000a      }\u000a      if (!c) {\u000a        throwError(g, "can't find matching end" + e);\u000a        return;\u000a      }\u000a      vsns.push(c);\u000a      i = 0;\u000a      cn = 0;\u000a      m = insertElement(g, "span", null, e + " " + name);\u000a      if (vsns.length > 0) {\u000a        h = insertElement(m, "span", null, "revision-span initial");\u000a      }\u000a      else {\u000a        h = m;\u000a      }\u000a      if (e == "insertion") {\u000a        h.style.display = "none";\u000a      }\u000a      h.setAttribute("data-enabled", (e != "insertion") + "");\u000a      vsn = vsns.shift();\u000a      h.tweecode = vsn[0];\u000a      while (vsns.length > 0) {\u000a        i += 1;\u000a        vtype = vsn[1].slice(2, -2);\u000a        vsn = vsns.shift();\u000a        h = insertElement(m, "span", null, "revision-span " + vtype);\u000a        h.tweecode = vsn[0];\u000a        h.setAttribute("data-enabled", "false");\u000a        h.style.display = "none";\u000a      }\u000a      h = m.firstChild;\u000a      new Wikifier(h, h.tweecode);\u000a    }\u000a  }\u000a  var de = "data-enabled";\u000a\u000a  function revise(rt, rname) {\u000a    var rall, r, rc, rcl, ind, ind2, curr, next, ins, rmv, cyc, rev, rnd;\u000a    rev = (rt == "revert");\u000a    rnd = (rt.indexOf("random") > -1);\u000a    var rsp = "revision-span";\u000a\u000a    function showVer(n) {\u000a      n.innerHTML = "";\u000a      new Wikifier(n, n.tweecode);\u000a      n.setAttribute(de, "true");\u000a      n.style.display = "inline";\u000a      n.classList.remove(rsp + "-out");\u000a      n.classList.add(rsp + "-in");\u000a      if (n.timeout) clearTimeout(n.timeout);\u000a      n.timeout = setTimeout(function () {\u000a        n.classList.remove(rsp + "-in");\u000a      }, 1);\u000a    }\u000a\u000a    function hideVer(n) {\u000a      n.setAttribute(de, "false");\u000a      n.classList.remove(rsp + "-in");\u000a      n.classList.add(rsp + "-out");\u000a      if (n.timeout) clearTimeout(n.timeout);\u000a      n.timeout = setTimeout(function () {\u000a        if (n.getAttribute(de) == "false") {\u000a          n.classList.remove(rsp + "-out");\u000a          n.style.display = "none";\u000a          n.innerHTML = "";\u000a        }\u000a      }, 1000);\u000a    }\u000a\u000a    function doToGainerSpans(n, fn) {\u000a      for (var k = n - 1; k >= 0; k--) {\u000a        if (rc[k + 1].classList.contains("gains")) {\u000a          fn(rc[k]);\u000a        }\u000a        else break;\u000a      }\u000a    }\u000a    rall = document.getElementsByClassName(rname);\u000a    for (var i = 0; i < rall.length; i++) {\u000a      r = rall[i];\u000a      rc = r.childNodes;\u000a      ins = r.classList.contains("insertion");\u000a      rmv = r.classList.contains("removal");\u000a      cyc = r.classList.contains("cycle");\u000a      rcl = rc.length - 1;\u000a      ind = -1;\u000a      for (var k = 0; k <= rcl; k++) {\u000a        if (rc[k].getAttribute(de) == "true") {\u000a          ind = k;\u000a        }\u000a      }\u000a      if (ind == -1) {\u000a        if (ins) {\u000a          ind = -1;\u000a          curr = null;\u000a        }\u000a        else if (rmv) {\u000a          ind = rcl + 1;\u000a          curr = null;\u000a        }\u000a      }\u000a      else {\u000a        if (rev) {\u000a          ind -= 1;\u000a        }\u000a        curr = (ind >= 0 ? rc[ind] : (cyc ? rc[rcl] : null));\u000a      }\u000a      ind2 = ind;\u000a      if (rnd) {\u000a        ind2 = (ind + (Math.floor(Math.random() * rcl))) % rcl;\u000a      }\u000a      next = (ind2 < rcl ? rc[ind2 + 1] : (cyc ? rc[0] : null));\u000a      var docurr = (rev ? showVer : hideVer);\u000a      var donext = (rev ? hideVer : showVer);\u000a      if (curr) {\u000a        if (!(next && next.classList.contains("gains")) || rnd) {\u000a          docurr(curr);\u000a          doToGainerSpans(ind, docurr);\u000a        }\u000a      }\u000a      if (next) {\u000a        donext(next);\u000a        if (rnd) {\u000a          doToGainerSpans(ind2 + 1, donext);\u000a        }\u000a      }\u000a    }\u000a  }\u000a\u000a  macros['revert'] = macros['revise'] = macros['randomise'] = macros['randomize'] = {\u000a    handler: function (a, b, c) {\u000a      var l, rev, rname;\u000a\u000a      function disableLink(l) {\u000a        l.style.display = "none";\u000a      }\u000a\u000a      function enableLink(l) {\u000a        l.style.display = "inline";\u000a      }\u000a\u000a      function updateLink(l) {\u000a        if (l.className.indexOf("random") > -1) {\u000a          enableLink(l);\u000a          return;\u000a        }\u000a        var rall = document.getElementsByClassName(rname);\u000a        var cannext, canprev;\u000a        for (var i = 0; i < rall.length; i++) {\u000a          var r = rall[i];\u000a          if (r.classList.contains("cycle")) {\u000a            cannext = canprev = true;\u000a          }\u000a          else {\u000a            var rc = r.childNodes;\u000a            var rcl = rc.length;\u000a            var ins = r.classList.contains("insertion");\u000a            var rmv = r.classList.contains("removal");\u000a            var rnd = rname.indexOf("random") > -1;\u000a            var ind = -1;\u000a            for (var k = 0; k < rc.length; k++) {\u000a              if (rc[k].getAttribute(de) == "true") {\u000a                ind = k;\u000a              }\u000a            }\u000a            if (ind == -1 && (ins || rmv)) {\u000a              (ins ? cannext = true : canprev = true);\u000a            }\u000a            if (ind > (ins ? -1 : 0)) {\u000a              canprev = true;\u000a            }\u000a            if (ind > -1 && ind < (rmv ? rcl : rcl - 1)) {\u000a              cannext = true;\u000a            }\u000a          }\u000a        }\u000a        var can = (l.classList.contains("revert") ? canprev : cannext);\u000a        (can ? enableLink : disableLink)(l);\u000a      }\u000a      function toggleText(w) {\u000a          w.classList.toggle(rl + "Enabled");\u000a          w.classList.toggle(rl + "Disabled");\u000a          w.style.display = ((w.style.display == "none") ? "inline" : "none");\u000a      }\u000a      var rl = "reviseLink";\u000a      if (c.length < 2) {\u000a        throwError(a, b + ' macro needs 2 parameters');\u000a        return;\u000a      }\u000a      rname = c.shift().replace(" ", "_");\u000a      l = Wikifier.createInternalLink(a, null);\u000a      l.className = "internalLink " + rl + " " + rl + "_" + rname + " " + b;\u000a      var v = "";\u000a      var end = false;\u000a      var out = false;\u000a      if(c.length>1 && c[0][0] == "$") {\u000a        v = c[0].slice(1);\u000a        c.shift();\u000a      }\u000a      switch(c[c.length - 1]) {\u000a        case "end":\u000a          end = true;\u000a          c.pop();\u000a          break;\u000a        case "out":\u000a          out = true;\u000a          c.pop();\u000a          break;\u000a      }\u000a      var h = state.history[0].variables;\u000a      for(var i = 0; i < c.length; i++) {\u000a        var on = (i == Math.max(c.indexOf(h[v]), 0));\u000a        var d = insertElement(null, "span", null, rl + ((on) ? "En" : "Dis") + "abled");\u000a        if(on) {\u000a          h[v] = c[i];\u000a          l.setAttribute("data-cycle", i);\u000a        } else {\u000a          d.style.display="none";\u000a        }\u000a        insertText(d, c[i]);\u000a        l.appendChild(d);\u000a      }\u000a      l.onclick = function () {\u000a        revise(b, rname);\u000a        var t = this.childNodes;\u000a        var u = this.getAttribute("data-cycle") - 0;\u000a        var m = t.length;\u000a        if((end || out) && u == m - (end ? 2 : 1)) {\u000a          if (end) {\u000a            var n = this.removeChild(t[u + 1]);\u000a            n.className = rl + "End";\u000a            n.style.display = "inline";\u000a            this.parentNode.replaceChild(n, this);\u000a          } else {\u000a            this.parentNode.removeChild(this);\u000a            return;\u000a          }\u000a        } else {\u000a          toggleText(t[u]);\u000a          u = (u + 1) % m;\u000a          if(v) {\u000a            h[v] = c[u];\u000a          }\u000a          toggleText(t[u]);\u000a          this.setAttribute("data-cycle", u);\u000a        }\u000a        var lall = document.getElementsByClassName(rl + "_" + rname);\u000a        for (var i = 0; i < lall.length; i++) {\u000a          updateLink(lall[i]);\u000a        }\u000a      };\u000a      disableLink(l);\u000a      setTimeout(function () {\u000a        updateLink(l);\u000a      }, 1);\u000a    }\u000a  }\u000a  macros['hoverrevise'] = {\u000a    handler: function (a, b, c, d) {\u000a      var endtags = ["<<end" + b + ">>"];\u000a      var t = tagcontents(d, ["<<" + b + ">>"], endtags, endtags, d.source.indexOf('>>', d.matchStart) + 2);\u000a      if (t) {\u000a        var rname = c[0].replace(" ", "_");\u000a        h = insertElement(a, "span", null, "hoverrevise hoverrevise_" + rname);\u000a        new Wikifier(h, t[0]);\u000a        h.onmouseover = function () {\u000a          revise("revise", rname);\u000a        }\u000a        h.onmouseout = function () {\u000a          revise("revert", rname);\u000a        }\u000a      }\u000a    }\u000a  }\u000a  macros['becomes'] = macros['gains'] = macros['endrevision'] = macros['endinsertion'] = macros['endremoval'] = macros[\u000a    'endcycle'] = macros['endhoverrevise'] = {\u000a    handler: function () {}\u000a  }\u000a\u000a}());
+p84
+sg23
+VHoverrevise Macros
+p85
+sg25
+g26
+((I2015
+I4
+I8
+I13
+I12
+I3
+I2
+I98
+I1
+tp86
+(dp87
+tp88
+Rp89
+sg31
+(lp90
+Vscript
+p91
+asg33
+g26
+((I2015
+I4
+I8
+I13
+I11
+I44
+I2
+I98
+I1
+tp92
+(dp93
+tp94
+Rp95
+sbsa(dp96
+g14
+I00
+sg15
+(lp97
+I1130
+aI10
+asg17
+(itiddlywiki
+Tiddler
+p98
+(dp99
+g21
+V$(function() {\u000a    $("body").append("<div class='narrate-bg'>&nbsp;</div>"); \u000a});\u000a\u000a// Scroll chat window\u000adocument.scroll_chat = function() {\u000a    $("#passages").scrollTop($("#passages")[0].scrollHeight);\u000a}\u000a\u000achat_history = History.prototype.display;\u000aHistory.prototype.display = function() {\u000a    his = chat_history.apply(this, arguments);\u000a    document.scroll_chat();\u000a    return his;\u000a}\u000a\u000a\u000a\u000a
+p100
+sg23
+VJS
+p101
+sg25
+g26
+((I2015
+I4
+I8
+I13
+I12
+I44
+I2
+I98
+I1
+tp102
+(dp103
+tp104
+Rp105
+sg31
+(lp106
+Vscript
+p107
+asg33
+g26
+((I2015
+I4
+I8
+I13
+I12
+I26
+I2
+I98
+I1
+tp108
+(dp109
+tp110
+Rp111
+sbsa(dp112
+g14
+I00
+sg15
+(lp113
+I10
+aI430
+asg17
+(itiddlywiki
+Tiddler
+p114
+(dp115
+g21
+Vundo:on\u000abookmark:on\u000ahash:off\u000aexitprompt:off\u000ablankcss:off\u000aobfuscate:off\u000ajquery:on\u000amodernizr:off\u000a
+p116
+sg23
+VStorySettings
+p117
+sg25
+g26
+((I2015
+I4
+I8
+I13
+I13
+I26
+I2
+I98
+I1
+tp118
+(dp119
+tp120
+Rp121
+sg31
+(lp122
+sg33
+g26
+((I2015
+I4
+I8
+I13
+I13
+I21
+I2
+I98
+I1
+tp123
+(dp124
+tp125
+Rp126
 sbsasS'scale'
-p56
+p127
 I1
 sS'snapping'
-p57
-I00
+p128
+I01
 ss.
